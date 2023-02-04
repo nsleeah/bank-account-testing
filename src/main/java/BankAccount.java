@@ -8,39 +8,35 @@ public class BankAccount {
     private LocalDate dateOfBirth;
     private int accountNumber;
     private double balance;
-    private double interest;
+    private String accountType;
+    private double overdraft;
 
-    //Constructors
-    public BankAccount(String firstName,
-            String lastName,
-            LocalDate dateOfBirth,
-            int accountNumber){
+    //Constructor
+    public BankAccount(String firstName, String lastName, LocalDate dateOfBirth, int accountNumber, String accountType, double overdraft) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.accountNumber = accountNumber;
         this.balance = 0;
+        this.accountType = accountType;
+        this.overdraft = overdraft;
     }
-
 
 
     //Methods
 
     //Deposit
     public void deposit (double amount){
-        balance +=  amount;
+        this.balance +=  amount;
     }
 
     //Withdrawal
     public void withdrawal(double amount){
-        balance -= amount;
+        this.balance -= amount;
     }
 
     //Interest
-    public void payInterest(double interestRates) {
-        interest = balance + interestRates;
-        balance = balance + interest; //Adds interest back original.
-    }
+    //To do..
 
 
     //Getters and Setters.
@@ -85,6 +81,22 @@ public class BankAccount {
 
     public void setBalance(int balance){
         this.balance = balance;
+    }
+
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public double getOverdraft() {
+        return this.overdraft;
+    }
+
+    public void setOverdraft(double overdraft) {
+        this.overdraft = overdraft;
     }
 
     public String generateMessage() {
